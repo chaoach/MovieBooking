@@ -1,0 +1,8 @@
+password root: efaok60@AAAAADLSqk
+
+sudo mysql -u root -p
+show databases;
+
+
+show listening ports: sudo netstat -tunlp
+

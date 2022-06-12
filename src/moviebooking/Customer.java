@@ -23,4 +23,8 @@ public class Customer extends User{
         //appeler la methode de la database qui crée une ligne "réservation" dans le tableau reservation 
     }
     
+    public void getSQLMovies(){
+        
+    }
+    
 }

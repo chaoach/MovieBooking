@@ -8,7 +8,11 @@ package moviebooking;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ChoiceBox;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.event.ActionEvent;
 /**
  * FXML Controller class
  *
@@ -18,10 +22,28 @@ public class FXML2GuestController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * Class qui définit la page de booking guest
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        movieChoiceBox.getItems().addAll("mickey","iron man");
+    }   
+    
+    @FXML
+    private DatePicker datePicker;
+
+    @FXML
+    private ChoiceBox<String> movieChoiceBox;
+
+    @FXML
+    private ChoiceBox<?> screenChoiceBox;
+
+    @FXML
+    private ChoiceBox<?> timeChoiceBox;
+
+    @FXML
+    void bookButtonAction(ActionEvent event) {
+
+    }
     
 }
