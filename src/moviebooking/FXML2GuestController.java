@@ -12,7 +12,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ChoiceBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.event.ActionEvent;
+import javafx.scene.input.MouseEvent;
 /**
  * FXML Controller class
  *
@@ -42,7 +42,7 @@ public class FXML2GuestController implements Initializable {
     private ChoiceBox<?> timeChoiceBox;
 
     @FXML
-    void bookButtonAction(ActionEvent event) {
+    void selectButtonAction(MouseEvent event) {
 
     }
     

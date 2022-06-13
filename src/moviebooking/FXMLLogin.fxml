@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moviebooking.FXMLLoginController">
+   <children>
+      <Label fx:id="label1" layoutX="136.0" layoutY="90.0" text="User Name" />
+      <TextField id="usrName" fx:id="usrName" layoutX="269.0" layoutY="84.0" />
+      <Label layoutX="136.0" layoutY="173.0" text="Password" />
+      <PasswordField fx:id="usrPwd" layoutX="269.0" layoutY="167.0" />
+      <Button layoutX="277.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Submit" />
+   </children>
+</AnchorPane>
