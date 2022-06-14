@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moviebooking.FXML2GuestController">
+   <children>
+      <DatePicker fx:id="cbo_date" layoutX="14.0" layoutY="105.0" prefHeight="26.0" prefWidth="131.0" promptText="Choose date" />
+      <Button fx:id="bp_book" layoutX="623.0" layoutY="106.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="I book !" />
+      <ComboBox fx:id="cbo_time" layoutX="150.0" layoutY="106.0" prefWidth="150.0" promptText="Choose time" />
+      <ComboBox fx:id="cbo_movie" layoutX="300.0" layoutY="106.0" prefHeight="25.0" prefWidth="150.0" promptText="Choose movie" />
+      <ComboBox fx:id="cbo_screen" layoutX="464.0" layoutY="106.0" prefHeight="25.0" prefWidth="120.0" promptText="Choose screen" />
+   </children>
+</AnchorPane>

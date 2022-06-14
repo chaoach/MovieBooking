@@ -5,6 +5,11 @@
  */
 package moviebooking;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 /**
  *
  * @author PC
@@ -14,8 +19,20 @@ public class MovieBooking {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    
+
+    public static void main(String[] args) throws Exception {
+       
+        launch(args);
+    }
+    
+    public void launch(Stage stage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("FXML1.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
     }
     
 }
