@@ -46,4 +46,39 @@ public class FXML2GuestController implements Initializable {
 
     }
     
+
+/*
+    void remplir_Jcomb() {
+        Connection conn = null;
+        try {
+            // db parameters - ptest is the name of the database
+            String url = "jdbc:mysql://localhost:3306/site_cinema";
+            String user = "root";
+            String password = "";
+
+            // create a connection to the database
+            conn = DriverManager.getConnection(url, user, password);
+            // more processing here
+            // ...   
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from site_reservation where ID = 1");
+            while (rs.next()) {
+                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3) + "  " + rs.getString(4) + "  " + rs.getString(5) + "  " + rs.getString(6));
+            }
+            stmt.executeUpdate("INSERT INTO employe " + "VALUES (1001, 'alex', 'rakul', 'Springfield', 2001)");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+
+        }
+    }*/
+    
 }

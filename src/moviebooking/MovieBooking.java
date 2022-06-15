@@ -20,7 +20,7 @@ public class MovieBooking extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLLogin.fxml"));//getResource("FXML1.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXML1.fxml"));//getResource("FXML1.fxml"));
         
         Scene scene = new Scene(root);
         

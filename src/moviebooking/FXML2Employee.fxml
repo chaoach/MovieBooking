@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="moviebooking.FXML2EmployeeController">
+   <children>
+      <Button layoutX="468.0" layoutY="86.0" mnemonicParsing="false" onAction="#addMovieButton" text="Add movie" />
+      <TextField fx:id="movieName" layoutX="14.0" layoutY="86.0" />
+      <TextField fx:id="price" layoutX="170.0" layoutY="85.0" prefHeight="26.0" prefWidth="88.0" />
+      <Label layoutX="14.0" layoutY="68.0" text="Movie name :" />
+      <Label layoutX="170.0" layoutY="68.0" text="Price :" />
+      <Label layoutX="14.0" layoutY="42.0" text="First, add a movie :" underline="true" />
+      <Label layoutX="14.0" layoutY="172.0" prefHeight="18.0" prefWidth="400.0" text="Then, enter the sessions, or just add sessions to a movie that already exist :" underline="true" />
+      <ChoiceBox layoutX="14.0" layoutY="220.0" prefWidth="150.0" />
+      <Label layoutX="14.0" layoutY="200.0" text="Select a movie :" />
+      <ChoiceBox layoutX="170.0" layoutY="220.0" prefHeight="26.0" prefWidth="57.0" />
+      <Label layoutX="172.0" layoutY="200.0" text="Screen :" />
+      <DatePicker layoutX="238.0" layoutY="220.0" prefHeight="26.0" prefWidth="118.0" />
+      <Label layoutX="238.0" layoutY="200.0" text="Date :" />
+      <TextField layoutX="366.0" layoutY="220.0" prefHeight="26.0" prefWidth="118.0" />
+      <Label layoutX="366.0" layoutY="200.0" text="Time (hh:mm:ss) :" />
+      <Button layoutX="490.0" layoutY="221.0" mnemonicParsing="false" text="Add !" />
+      <Button layoutX="487.0" layoutY="260.0" mnemonicParsing="false" text="Remove" />
+   </children>
+</AnchorPane>
