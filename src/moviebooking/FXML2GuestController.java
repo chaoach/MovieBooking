@@ -6,13 +6,21 @@
 package moviebooking;
 
 import java.net.URL;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ChoiceBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
 /**
  * FXML Controller class
  *
@@ -21,14 +29,22 @@ import javafx.scene.input.MouseEvent;
 public class FXML2GuestController implements Initializable {
 
     /**
-     * Initializes the controller class.
-     * Class qui définit la page de booking guest
+     * Initializes the controller class. Class qui définit la page de booking
+     * guest
      */
+    private String date_choisi;
+    private String movie_choisi;
+    private String time_choisi;
+    private String screen_choisi;
+    private String nom;
+    private String prenom;
+    private String mail;
+    private String nombre_place;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        movieChoiceBox.getItems().addAll("mickey","iron man");
-    }   
-    
+    }
+
     @FXML
     private DatePicker datePicker;
 
@@ -36,49 +52,117 @@ public class FXML2GuestController implements Initializable {
     private ChoiceBox<String> movieChoiceBox;
 
     @FXML
-    private ChoiceBox<?> screenChoiceBox;
+    private ChoiceBox<String> screenChoiceBox;
 
     @FXML
-    private ChoiceBox<?> timeChoiceBox;
+    private ChoiceBox<String> timeChoiceBox;
 
     @FXML
-    void selectButtonAction(MouseEvent event) {
+    private TextField txt_mail;
+
+    @FXML
+    private TextField txt_nom;
+
+    @FXML
+    private TextField txt_prenom;
+    
+    /*movie*/
+    @FXML
+    void f_date(ActionEvent event) {/* action qui permet de faire le munu deroulant */
+
+        load_sql_movie();
+    }
+
+    void load_sql_movie() {
+
+        LocalDate localDate = datePicker.getValue();
+        date_choisi = localDate.toString();
+        SQLMgmt sql_movie = new SQLMgmt();
+        System.out.println(localDate + " la date choisie \n");
+
+        ArrayList<String> list_movie = sql_movie.SQLmovie(date_choisi);
+
+        movieChoiceBox.getItems().clear();
+
+        for (String elem : list_movie) {
+            movieChoiceBox.getItems().addAll(elem);
+        }
+
+    }
+
+    /*time*/
+    @FXML
+    void f_movie(ActionEvent event) {/* action qui permet de faire le munu deroulant */
+
+        load_sql_time();
+
+        System.out.println(" BP movie ");
+
+    }
+
+    void load_sql_time() {
+
+        SQLMgmt sql_time = new SQLMgmt();
+        System.out.println(date_choisi + " la date choisie  et le film est ");
+
+        movie_choisi = movieChoiceBox.getValue();
+
+        ArrayList<String> list_time = sql_time.SQLtime(date_choisi, movie_choisi);
+
+        timeChoiceBox.getItems().clear();
+
+        for (String elem : list_time) {
+            timeChoiceBox.getItems().addAll(elem);
+        }
+
+    }
+
+    /*Screen*/
+    @FXML
+    void f_time(ActionEvent event) {
+        /* action qui permet de faire le munu deroulant */
+
+        load_sql_screen();
+        
+
+        System.out.println(" BP time ");
+
+    }
+
+    void load_sql_screen() {
+
+        SQLMgmt sql_screen = new SQLMgmt();
+
+        time_choisi = timeChoiceBox.getValue();
+
+        ArrayList<String> list_screen = sql_screen.SQLscreen(date_choisi, movie_choisi, time_choisi);
+
+        screenChoiceBox.getItems().clear();
+
+        for (String elem : list_screen) {
+            screenChoiceBox.getItems().addAll(elem);
+        }
 
     }
     
+    @FXML
+    void f_screen(ActionEvent event) {
+        /* action qui permet de faire le menu deroulant */
 
-/*
-    void remplir_Jcomb() {
-        Connection conn = null;
-        try {
-            // db parameters - ptest is the name of the database
-            String url = "jdbc:mysql://localhost:3306/site_cinema";
-            String user = "root";
-            String password = "";
+        screen_choisi = screenChoiceBox.getValue();
+        
 
-            // create a connection to the database
-            conn = DriverManager.getConnection(url, user, password);
-            // more processing here
-            // ...   
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from site_reservation where ID = 1");
-            while (rs.next()) {
-                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3) + "  " + rs.getString(4) + "  " + rs.getString(5) + "  " + rs.getString(6));
-            }
-            stmt.executeUpdate("INSERT INTO employe " + "VALUES (1001, 'alex', 'rakul', 'Springfield', 2001)");
+        System.out.println(" BP screen ");
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+    }
+    @FXML
+    void selectButtonAction(MouseEvent event) {
+        
+        SQLMgmt sql_reservation = new SQLMgmt();
+        nom = txt_nom.getText();
+        prenom = txt_prenom.getText();
+        mail = txt_mail.getText();
+        sql_reservation.SQLAddreservation(date_choisi, movie_choisi, time_choisi, screen_choisi,nom,prenom,mail,nombre_place);
 
-        }
-    }*/
-    
+    }
 }
