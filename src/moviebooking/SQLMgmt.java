@@ -5,6 +5,7 @@
  */
 package moviebooking;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -78,6 +79,61 @@ public class SQLMgmt {
                 System.out.println(ex.getMessage());
             }
         }
+    }
+    
+    public void SQLAddSession(String name, double price){
+        Connection conn = null;
+        
+        try {
+            // create a connection to the database
+            conn = DriverManager.getConnection(url, user, password);
+            
+            ///////// code of the method
+        
+            Statement stmt=conn.createStatement(); 
+            stmt.executeUpdate("INSERT INTO `movie`(`id_movie`, `name`, `price`) VALUES (NULL,'" + name + "'," + price + ")");   //SQL command to add movie and price to table movie       
+            
+            ///////// end of code of the method
+        
+        } catch(SQLException e) { //// catch error connection
+            System.out.println(e.getMessage());
+        } finally { //// try catch closing connection
+            try{
+                if(conn != null)
+                    conn.close();
+            }catch(SQLException ex){
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+    
+    public ArrayList<String> SQLListMoviesForEmployee(){
+        ArrayList<String> list_movie = new ArrayList<String>();
+        
+        Connection conn = null;
+        try {
+            // create a connection to the database
+            conn = DriverManager.getConnection(url, user, password);
+            // more processing here
+            // ...   
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select name from movie");
+            while (rs.next()) {
+                list_movie.add(rs.getString(1));
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return list_movie;
     }
     
 }

@@ -50,8 +50,10 @@ public class FXML1Controller implements Initializable {
         Parent root1 =(Parent) loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));
-        //stage.setTitle("Second Window");
+        stage.setTitle("Employee Window");
         stage.show(); //shows the FXML page
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+
     }
     
 
@@ -67,6 +69,8 @@ public class FXML1Controller implements Initializable {
         stage.setScene(new Scene(root1));
         //stage.setTitle("Second Window");
         stage.show();
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+
     }
     
     //
