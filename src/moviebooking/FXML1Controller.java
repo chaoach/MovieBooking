@@ -46,7 +46,7 @@ public class FXML1Controller implements Initializable {
     @FXML
     void handleEmployeeAction(ActionEvent event) throws IOException {
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML2Employee.fxml")); //access the ressource of the page for the employee
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLLoginEmployee.fxml")); //access the ressource of the page for the employee
         Parent root1 =(Parent) loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));

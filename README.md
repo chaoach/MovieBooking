@@ -18,3 +18,6 @@ INSERT INTO `session` (`id_session`, `movie_name`, `screen_n`, `date`, `time`) V
 
 Get path of an image by browsing it:
 https://www.youtube.com/watch?v=khK-cshWE24
+
+COPY FILE TO LOCATION
+https://www.java67.com/2016/09/how-to-copy-file-from-one-location-to-another-in-java.html

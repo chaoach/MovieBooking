@@ -4,31 +4,46 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moviebooking.FXML2EmployeeController">
+<AnchorPane id="AnchorPane" prefHeight="663.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moviebooking.FXML2EmployeeController">
    <children>
       <Button layoutX="468.0" layoutY="86.0" mnemonicParsing="false" onAction="#addMovieButton" text="Add movie" />
       <TextField fx:id="movieName" layoutX="14.0" layoutY="86.0" />
-      <TextField fx:id="price" layoutX="170.0" layoutY="85.0" prefHeight="26.0" prefWidth="88.0" />
+      <TextField fx:id="price" layoutX="194.0" layoutY="85.0" prefHeight="26.0" prefWidth="88.0" />
       <Label layoutX="14.0" layoutY="68.0" text="Movie name :" />
-      <Label layoutX="170.0" layoutY="68.0" text="Price :" />
+      <Label layoutX="193.0" layoutY="68.0" text="Price :" />
       <Label layoutX="14.0" layoutY="42.0" text="First, add a movie :" underline="true" />
       <ChoiceBox fx:id="movieSelect" layoutX="14.0" layoutY="220.0" onAction="#CB_movie" prefWidth="150.0" />
       <Label layoutX="14.0" layoutY="172.0" prefHeight="18.0" prefWidth="400.0" text="Then, enter the sessions, or just add sessions to a movie that already exist :" underline="true" />
       <Label layoutX="14.0" layoutY="200.0" text="Select a movie :" />
-      <ChoiceBox layoutX="170.0" layoutY="220.0" prefHeight="26.0" prefWidth="57.0" />
+      <ChoiceBox fx:id="screenSelect" layoutX="170.0" layoutY="220.0" prefHeight="26.0" prefWidth="57.0" />
       <Label layoutX="172.0" layoutY="200.0" text="Screen :" />
-      <DatePicker layoutX="238.0" layoutY="220.0" prefHeight="26.0" prefWidth="118.0" />
+      <DatePicker fx:id="dateSession" layoutX="238.0" layoutY="220.0" prefHeight="26.0" prefWidth="118.0" />
       <Label layoutX="238.0" layoutY="200.0" text="Date :" />
-      <TextField layoutX="366.0" layoutY="220.0" prefHeight="26.0" prefWidth="118.0" />
-      <Label layoutX="366.0" layoutY="200.0" text="Time (hh:mm:ss) :" />
-      <Button layoutX="490.0" layoutY="221.0" mnemonicParsing="false" text="Add !" />
-      <Button layoutX="487.0" layoutY="260.0" mnemonicParsing="false" text="Remove" />
+      <TextField fx:id="timeSession" layoutX="366.0" layoutY="220.0" prefHeight="26.0" prefWidth="118.0" />
+      <Label layoutX="366.0" layoutY="200.0" text="Time (hh:mm) :" />
+      <Button fx:id="addSession" layoutX="490.0" layoutY="221.0" mnemonicParsing="false" onAction="#addSession" text="Add !" />
+      <Button fx:id="removeSession" layoutX="487.0" layoutY="260.0" mnemonicParsing="false" onAction="#removeSession" text="Remove" />
       <Button fx:id="addPictureButton" layoutX="300.0" layoutY="86.0" mnemonicParsing="false" onAction="#addPicture" text="Add picture" />
       <Label fx:id="firstLabel" layoutX="22.0" layoutY="130.0" />
-      <ImageView fx:id="imageMovie" fitHeight="150.0" fitWidth="200.0" layoutX="154.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageMovie" fitHeight="254.0" fitWidth="220.0" layoutX="14.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="secondLabel" layoutX="577.0" layoutY="225.0" />
+      <TableView fx:id="tableSession" layoutX="239.0" layoutY="335.0" prefHeight="316.0" prefWidth="503.0">
+        <columns>
+          <TableColumn fx:id="movieColumn" prefWidth="176.79998779296875" text="Movie" />
+          <TableColumn fx:id="screenColumn" prefWidth="54.39996337890625" text="Screen" />
+            <TableColumn fx:id="dateColumn" prefWidth="115.20004272460938" text="Date" />
+            <TableColumn fx:id="timeColumn" prefWidth="95.199951171875" text="Time" />
+            <!--<TableColumn fx:id="ticketColumn" prefWidth="57.5999755859375" text="Tickets" />-->
+        </columns>
+      </TableView>
+      <Label layoutX="240.0" layoutY="315.0" text="Programmed sessions :" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
+      <Button layoutX="652.0" layoutY="14.0" mnemonicParsing="false" onAction="#ticketSalesButton" text="Ticket sales" />
    </children>
 </AnchorPane>

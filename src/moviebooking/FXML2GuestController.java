@@ -162,7 +162,7 @@ public class FXML2GuestController implements Initializable {
         nom = txt_nom.getText();
         prenom = txt_prenom.getText();
         mail = txt_mail.getText();
-        sql_reservation.SQLAddreservation(date_choisi, movie_choisi, time_choisi, screen_choisi,nom,prenom,mail,nombre_place);
+        //sql_reservation.SQLAddreservation(date_choisi, movie_choisi, time_choisi, screen_choisi,nom,prenom,mail,nombre_place);
 
     }
 }
