@@ -15,14 +15,14 @@ public class Session {
     int screen;
     String date;
     String time;
-    double tickets;
+    int tickets;
 
-    public Session(String name, int screen, String date, String time/*, double tickets*/) {
+    public Session(String name, int screen, String date, String time,int tickets) {
         this.name = name;
         this.screen = screen;
         this.date = date;
         this.time = time;
-        //this.tickets = tickets;
+        this.tickets = tickets;
     }
 
     public String getName() {
@@ -41,7 +41,7 @@ public class Session {
         return time;
     }
 
-    public double getRemain_ticket() {
+    public int getTickets() {
         return tickets;
     }
     

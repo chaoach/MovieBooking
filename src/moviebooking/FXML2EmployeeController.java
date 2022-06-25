@@ -147,6 +147,7 @@ public class FXML2EmployeeController implements Initializable {
         try {
             Image myImage = new Image(getClass().getResourceAsStream(movieSelect.getValue().toString() + ".jpg"));
             imageMovie.setImage(myImage);
+            setFilteredSessionTable();
         } catch (Exception e) {
             
             System.out.println(e);
@@ -193,11 +194,10 @@ public class FXML2EmployeeController implements Initializable {
         if(testTime(timeSession.getText())== false){
             secondLabel.setText("The time is not usable");
         } else {
-            //screenSelect.getValue()
-            //System.out.println(dateSession.getValue());
             sql.SQLAddSession(movieSelect.getValue(),Integer.valueOf(screenSelect.getValue()),dateSession.getValue(),timeSession.getText());
             secondLabel.setText("The session is added");
         }
+        setSessionTable();
     }
 
     @FXML
@@ -205,7 +205,7 @@ public class FXML2EmployeeController implements Initializable {
         SQLMgmt sql = new SQLMgmt();
         sql.SQLRemoveSession(movieSelect.getValue(),Integer.valueOf(screenSelect.getValue()),dateSession.getValue(),timeSession.getText());
         secondLabel.setText("The session is removed");
-        
+        setSessionTable();
     }
     
     
@@ -267,25 +267,36 @@ public class FXML2EmployeeController implements Initializable {
 
     @FXML private TableColumn<Session, String> timeColumn;
     
-    //@FXML private TableColumn<Session, Double> ticketColumn;
+    @FXML private TableColumn<Session, Double> ticketColumn;
     
     @FXML private TableView<Session> tableSession;
     
-    ObservableList<Session> listSessions = FXCollections.observableArrayList(
-        //new Session("Avatar",2,"20-04","16:20",250)
-    
-    );
+    ObservableList<Session> listSessions = FXCollections.observableArrayList();
     
     public void setSessionTable(){
         movieColumn.setCellValueFactory(new PropertyValueFactory<Session, String>("name"));
         screenColumn.setCellValueFactory(new PropertyValueFactory<Session, Integer>("screen"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<Session, String>("date"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<Session, String>("time"));
-        //ticketColumn.setCellValueFactory(new PropertyValueFactory<Session, Double>("tickets"));
+        ticketColumn.setCellValueFactory(new PropertyValueFactory<Session, Double>("tickets"));
         
         SQLMgmt sql = new SQLMgmt();
         
         listSessions = sql.SQLTableSessionEmployee();
+        
+        tableSession.setItems(listSessions);
+    }
+    
+    public void setFilteredSessionTable(){
+        movieColumn.setCellValueFactory(new PropertyValueFactory<Session, String>("name"));
+        screenColumn.setCellValueFactory(new PropertyValueFactory<Session, Integer>("screen"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<Session, String>("date"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Session, String>("time"));
+        ticketColumn.setCellValueFactory(new PropertyValueFactory<Session, Double>("tickets"));
+        
+        SQLMgmt sql = new SQLMgmt();
+        
+        listSessions = sql.SQLTableSessionEmployeeFiltered(movieSelect.getValue());
         
         tableSession.setItems(listSessions);
     }

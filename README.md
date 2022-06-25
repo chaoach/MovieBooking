@@ -21,3 +21,7 @@ https://www.youtube.com/watch?v=khK-cshWE24
 
 COPY FILE TO LOCATION
 https://www.java67.com/2016/09/how-to-copy-file-from-one-location-to-another-in-java.html
+
+datePicker Oracle doc:
+Exemple 26-6
+https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/date-picker.htm#CCHEBIFF

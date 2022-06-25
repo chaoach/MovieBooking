@@ -39,7 +39,7 @@
           <TableColumn fx:id="screenColumn" prefWidth="54.39996337890625" text="Screen" />
             <TableColumn fx:id="dateColumn" prefWidth="115.20004272460938" text="Date" />
             <TableColumn fx:id="timeColumn" prefWidth="95.199951171875" text="Time" />
-            <!--<TableColumn fx:id="ticketColumn" prefWidth="57.5999755859375" text="Tickets" />-->
+            <TableColumn fx:id="ticketColumn" prefWidth="57.5999755859375" text="Tickets" />
         </columns>
       </TableView>
       <Label layoutX="240.0" layoutY="315.0" text="Programmed sessions :" />

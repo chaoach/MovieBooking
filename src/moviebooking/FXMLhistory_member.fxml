@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="table_view" prefHeight="532.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moviebooking.FXMLhistory_memberController">
+   <children>
+      <Label fx:id="lb_history" layoutX="14.0" layoutY="120.0" text="Label" />
+      <Label layoutX="414.0" layoutY="14.0" text="HISTORY">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table_view" layoutX="28.0" layoutY="225.0" prefHeight="200.0" prefWidth="927.0">
+        <columns>
+          <TableColumn prefWidth="107.0" text="name_movie" />
+          <TableColumn prefWidth="138.0" text="date_movie" />
+            <TableColumn prefWidth="128.0" text="time_movie" />
+            <TableColumn prefWidth="110.0" text="nom" />
+            <TableColumn prefWidth="57.0" text="prenom" />
+            <TableColumn prefWidth="220.0" text="mail" />
+            <TableColumn minWidth="0.0" prefWidth="96.0" text="screen" />
+            <TableColumn prefWidth="70.0" text="nb_ticket" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

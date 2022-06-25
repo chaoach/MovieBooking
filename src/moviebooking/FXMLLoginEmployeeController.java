@@ -29,7 +29,7 @@ import javafx.stage.Stage;
  *
  * @author PC
  */
-public class FXMLLoginEmloyeeController implements Initializable {
+public class FXMLLoginEmployeeController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -50,7 +50,7 @@ public class FXMLLoginEmloyeeController implements Initializable {
 
     @FXML
     void handleButtonAction(ActionEvent event) throws IOException {
-        if(chkLogin(usrName.getText(), usrPwd.getText()) == true){ //check the return of method checkLogin
+        if(empChkLogin(usrName.getText(), usrPwd.getText()) == true){ //check the return of method checkLogin
             System.out.println("Login ok");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML2Employee.fxml")); //access the ressource of the page for the employee
             Parent root1 =(Parent) loader.load();
@@ -64,8 +64,8 @@ public class FXMLLoginEmloyeeController implements Initializable {
         }
     }
     
-    private boolean chkLogin(String usr,String pwd) throws FileNotFoundException{ //Method that checks the login/password, call the sql method
-        
+    private boolean empChkLogin(String usr,String pwd) throws FileNotFoundException{ //Method that checks the login/password, call the sql method
+        System.out.println("EmpCheck");
         boolean login=false;
         
         SQLMgmt sql = new SQLMgmt(); //use the SQLMgmgt Class

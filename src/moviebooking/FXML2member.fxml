@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="677.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moviebooking.FXML2memberController">
+   <children>
+      <DatePicker fx:id="dateMenu" layoutX="24.0" layoutY="115.0" onAction="#f_date" prefHeight="26.0" prefWidth="131.0" />
+      <ChoiceBox fx:id="movieChoiceBox" layoutX="155.0" layoutY="115.0" onAction="#f_movie" prefWidth="150.0" />
+      <ChoiceBox fx:id="timeChoiceBox" layoutX="305.0" layoutY="115.0" onAction="#f_time" prefWidth="150.0" />
+      <ChoiceBox fx:id="screenChoiceBox" layoutX="455.0" layoutY="115.0" onAction="#f_screen" prefHeight="25.0" prefWidth="57.0" />
+      <Button fx:id="bp_book" layoutX="276.0" layoutY="586.0" mnemonicParsing="false" onAction="#bookButton" prefHeight="25.0" prefWidth="68.0" text="Boook!" />
+      <Label layoutX="28.0" layoutY="89.0" prefHeight="17.0" prefWidth="49.0" text="Date :" />
+      <Label layoutX="155.0" layoutY="89.0" text="Movie :" />
+      <Label layoutX="310.0" layoutY="89.0" prefHeight="17.0" prefWidth="49.0" text="Time :" />
+      <Label layoutX="455.0" layoutY="89.0" text="Screen :" />
+      <TextField fx:id="txt_nom" layoutX="52.0" layoutY="531.0" />
+      <TextField fx:id="txt_prenom" layoutX="230.0" layoutY="531.0" />
+      <TextField fx:id="txt_mail" editable="false" layoutX="409.0" layoutY="531.0" />
+      <Label layoutX="52.0" layoutY="500.0" prefHeight="17.0" prefWidth="49.0" text="Nom :" />
+      <Label layoutX="222.0" layoutY="500.0" prefHeight="17.0" prefWidth="49.0" text="Prénom :" />
+      <Label layoutX="408.0" layoutY="500.0" prefHeight="17.0" prefWidth="49.0" text="Mail :" />
+      <Label fx:id="lb_nombre_place" layoutX="66.0" layoutY="459.0" text="Nombre de places :" />
+      <ImageView fx:id="image_view_guest" fitHeight="248.0" fitWidth="389.0" layoutX="116.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true" />
+      <TextArea fx:id="txt_ticket" editable="false" layoutX="380.0" layoutY="441.0" prefHeight="37.0" prefWidth="42.0" />
+      <Button fx:id="bp_plus" layoutX="433.0" layoutY="447.0" mnemonicParsing="false" onAction="#f_plus_ticket" text="+" />
+      <Button fx:id="bp_moins" layoutX="347.0" layoutY="447.0" mnemonicParsing="false" onAction="#f_moins_ticket" text="-" />
+      <Label fx:id="lb_title" layoutX="275.0" layoutY="14.0" text="Welcome ">
+         <font>
+            <Font name="Arial" size="34.0" />
+         </font>
+      </Label>
+      <Button fx:id="bp_history" layoutX="71.0" layoutY="34.0" mnemonicParsing="false" onAction="#show_history" prefHeight="25.0" prefWidth="112.0" text="History" />
+   </children>
+</AnchorPane>

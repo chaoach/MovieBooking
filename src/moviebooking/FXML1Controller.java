@@ -2,6 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ *ALEX
  */
 package moviebooking;
 
@@ -62,8 +63,8 @@ public class FXML1Controller implements Initializable {
     
     @FXML
     void handleGuestAction(ActionEvent event) throws IOException {
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML2Guest.fxml"));
-        //FXMLDocumentController s2Controller = loader.getController();
         Parent root1 =(Parent) loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));
@@ -72,11 +73,22 @@ public class FXML1Controller implements Initializable {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
 
     }
-    
-    //
+
 
     @FXML
     private Button memberButton;
     
+    @FXML
+    void handlememberAction(ActionEvent event) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLLogin.fxml"));
+        Parent root1 =(Parent) loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));
+        stage.setTitle("MEMBER Window");
+        stage.show();
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+
+    }
     
 }

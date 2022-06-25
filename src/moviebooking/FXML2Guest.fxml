@@ -4,26 +4,32 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="556.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moviebooking.FXML2GuestController">
+<AnchorPane id="AnchorPane" prefHeight="641.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moviebooking.FXML2GuestController">
     <children>
-        <DatePicker fx:id="datePicker" layoutX="14.0" layoutY="105.0" onAction="#f_date" prefHeight="26.0" prefWidth="131.0" />
+        <DatePicker fx:id="dateMenu" layoutX="14.0" layoutY="105.0" onAction="#f_date" prefHeight="26.0" prefWidth="131.0" />
         <ChoiceBox fx:id="movieChoiceBox" layoutX="145.0" layoutY="105.0" onAction="#f_movie" prefWidth="150.0" />
         <ChoiceBox fx:id="timeChoiceBox" layoutX="295.0" layoutY="105.0" onAction="#f_time" prefWidth="150.0" />
         <ChoiceBox fx:id="screenChoiceBox" layoutX="445.0" layoutY="105.0" onAction="#f_screen" prefHeight="25.0" prefWidth="57.0" />
-        <Button layoutX="261.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#selectButtonAction" prefHeight="25.0" prefWidth="68.0" text="Boook!" />
+        <Button fx:id="bp_book" layoutX="266.0" layoutY="576.0" mnemonicParsing="false" onMouseClicked="#selectButtonAction" prefHeight="25.0" prefWidth="68.0" text="Boook!" />
         <Label layoutX="14.0" layoutY="79.0" prefHeight="17.0" prefWidth="49.0" text="Date :" />
         <Label layoutX="145.0" layoutY="79.0" text="Movie :" />
         <Label layoutX="300.0" layoutY="79.0" prefHeight="17.0" prefWidth="49.0" text="Time :" />
         <Label layoutX="445.0" layoutY="79.0" text="Screen :" />
-        <TextField fx:id="txt_nom" layoutX="14.0" layoutY="246.0" />
-        <TextField fx:id="txt_prenom" layoutX="192.0" layoutY="246.0" />
-        <TextField fx:id="txt_mail" layoutX="371.0" layoutY="246.0" />
-        <Label layoutX="14.0" layoutY="215.0" prefHeight="17.0" prefWidth="49.0" text="Nom :" />
-        <Label layoutX="184.0" layoutY="215.0" prefHeight="17.0" prefWidth="49.0" text="Prénom :" />
-        <Label layoutX="370.0" layoutY="215.0" prefHeight="17.0" prefWidth="49.0" text="Mail :" />
-        <Label fx:id="lb_nombre_place" layoutX="28.0" layoutY="174.0" text="Nombre de places :" />
+        <TextField fx:id="txt_nom" layoutX="42.0" layoutY="521.0" />
+        <TextField fx:id="txt_prenom" layoutX="220.0" layoutY="521.0" />
+        <TextField fx:id="txt_mail" layoutX="399.0" layoutY="521.0" />
+        <Label layoutX="42.0" layoutY="490.0" prefHeight="17.0" prefWidth="49.0" text="Nom :" />
+        <Label layoutX="212.0" layoutY="490.0" prefHeight="17.0" prefWidth="49.0" text="Prénom :" />
+        <Label layoutX="398.0" layoutY="490.0" prefHeight="17.0" prefWidth="49.0" text="Mail :" />
+      <Label fx:id="lb_nombre_place" layoutX="56.0" layoutY="449.0" text="Nombre de places :" />
+      <ImageView fx:id="image_view_guest" fitHeight="248.0" fitWidth="389.0" layoutX="106.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true" />
+      <TextArea fx:id="txt_ticket" editable="false" layoutX="345.0" layoutY="431.0" prefHeight="38.0" prefWidth="157.0" />
+      <Button fx:id="bp_plus" layoutX="502.0" layoutY="437.0" mnemonicParsing="false" onAction="#f_plus_ticket" text="+" />
+      <Button fx:id="bp_moins" layoutX="324.0" layoutY="438.0" mnemonicParsing="false" onAction="#f_moins_ticket" text="-" />
     </children>
 </AnchorPane>

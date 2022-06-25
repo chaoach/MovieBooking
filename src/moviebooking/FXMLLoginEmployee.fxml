@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moviebooking.FXMLLoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moviebooking.FXMLLoginEmployeeController">
    <children>
       <Label fx:id="label1" layoutX="136.0" layoutY="90.0" text="User Name" />
       <TextField id="usrName" fx:id="usrName" layoutX="269.0" layoutY="84.0" />

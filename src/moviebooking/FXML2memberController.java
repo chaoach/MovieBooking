@@ -10,16 +10,16 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ChoiceBox;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DateCell;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -32,13 +32,12 @@ import javafx.util.Callback;
 /**
  * FXML Controller class
  *
- * @author PC
+ * @author Rakul
  */
-public class FXML2GuestController implements Initializable {
+public class FXML2memberController implements Initializable {
 
     /**
-     * Initializes the controller class. Class qui définit la page de booking
-     * guest
+     * Initializes the controller class.
      */
     private String date_choisi;
     private String movie_choisi;
@@ -50,42 +49,8 @@ public class FXML2GuestController implements Initializable {
     private int nombre_place = 0;
     private int ticket_restant = 0;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        txt_ticket.setText("" + nombre_place);
-        dateMenu.setValue(LocalDate.now());
-        setAvailableDates();
-    }
-
     @FXML
     private DatePicker dateMenu;
-    
-    private void setAvailableDates(){
-        final Callback<DatePicker, DateCell> dayCellFactory = 
-            new Callback<DatePicker, DateCell>() {
-                @Override
-                public DateCell call(final DatePicker datePicker) {
-                    return new DateCell() {
-                        @Override
-                        public void updateItem(LocalDate item, boolean empty) {
-                            super.updateItem(item, empty);
-                           
-                            if (item.isBefore(
-                                    dateMenu.getValue())//.plusDays(1))
-                                ) {
-                                    setDisable(true);
-                                    setStyle("-fx-background-color: #ffc0cb;");
-                            }   
-                    }
-                };
-            }
-        };
-        dateMenu.setDayCellFactory(dayCellFactory);
-    }
-    
-
-    @FXML
-    private Button bp_book;
 
     @FXML
     private ChoiceBox<String> movieChoiceBox;
@@ -119,6 +84,26 @@ public class FXML2GuestController implements Initializable {
 
     @FXML
     private TextArea txt_ticket;
+
+    @FXML
+    private Label lb_title;
+    @FXML
+    private Button bp_history;
+    @FXML
+    private Button bp_book;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+
+        FXMLLoginController login_page = new FXMLLoginController(); // constructeur pour avoir acces au login
+        nom = login_page.getLogin();
+
+        lb_title.setText("Welcome " + nom + "!");
+        txt_mail.setText(nom);
+        dateMenu.setValue(LocalDate.now());
+        setAvailableDates();
+    }
 
     /*movie*/
     @FXML
@@ -187,7 +172,8 @@ public class FXML2GuestController implements Initializable {
     }
 
     void load_sql_screen() {
-
+        
+        
         SQLMgmt sql_screen = new SQLMgmt();
 
         time_choisi = timeChoiceBox.getValue();
@@ -219,6 +205,7 @@ public class FXML2GuestController implements Initializable {
         SQLMgmt sql_remaining_ticket = new SQLMgmt();
         val = sql_remaining_ticket.sql_remainticket(date_choisi, movie_choisi, time_choisi, screen_choisi);
         ticket_restant = val;
+
         lb_nombre_place.setText("Nombre de places : " + val);
     }
 
@@ -228,7 +215,7 @@ public class FXML2GuestController implements Initializable {
 
         if (nombre_place < 0) {
             nombre_place = 0;
-            
+
         }
 
         if (ticket_restant == 0 || ticket_restant >= nombre_place) {
@@ -249,7 +236,7 @@ public class FXML2GuestController implements Initializable {
             nombre_place = 0;
         }
         if (ticket_restant == 0 || ticket_restant >= nombre_place) {
-            
+
             bp_book.setVisible(true);
 
             txt_ticket.setText("" + nombre_place);
@@ -260,24 +247,60 @@ public class FXML2GuestController implements Initializable {
 
     }
 
-    @FXML
-    void selectButtonAction(MouseEvent event) throws IOException {
 
+
+    @FXML
+    void show_history(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLhistory_member.fxml")); //access the ressource of the page for the employee
+        Parent root1 = (Parent) loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));
+        stage.setTitle("History Member Window");
+        stage.show(); //shows the FXML page
+
+    }
+
+    private void setAvailableDates() {
+        final Callback<DatePicker, DateCell> dayCellFactory
+                = new Callback<DatePicker, DateCell>() {
+            @Override
+            public DateCell call(final DatePicker datePicker) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item.isBefore(
+                                dateMenu.getValue())//.plusDays(1))
+                                ) {
+                            setDisable(true);
+                            setStyle("-fx-background-color: #ffc0cb;");
+                        }
+                    }
+                };
+            }
+        };
+        dateMenu.setDayCellFactory(dayCellFactory);
+    }
+    
+
+    
+    
+    @FXML
+        void bookButton(ActionEvent event) throws IOException{
         nom = txt_nom.getText();
         prenom = txt_prenom.getText();
         mail = txt_mail.getText();
         Customer customer = new Customer(mail,nom,prenom,date_choisi,time_choisi,movie_choisi,Integer.valueOf(screen_choisi),nombre_place);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLPayment.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLMemberPayment.fxml"));
         Parent root1 = (Parent) loader.load();    
-        FXMLPaymentController sController = loader.getController();
+        FXMLMemberPaymentController sController = loader.getController();
         sController.transferObject(customer);;
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));
         stage.setTitle("Payment Window");
         stage.show();
         ((Stage) (((Button) event.getSource()).getScene().getWindow())).close();
-
     }
-    
-    
+
 }
